@@ -17,7 +17,13 @@ public class ListRank {
                 new Person(12, 176, "李四"),
                 new Person(16, 180, "王五"))
         );
-        System.out.println(personList);
+        int[] arr = {1,2,3};
+        arr = null;
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
+        }
+        List<Person> personList1 = new ArrayList<>(personList);
+        System.out.println(personList1);
 //        personList.sort(new Comparator<test.Person>() {
 //            @Override
 //            public int compare(test.Person person, test.Person t1) {
@@ -34,6 +40,9 @@ public class ListRank {
                 return a1.getAge() - a2.getAge();
             }
         });
-        System.out.println(personList);
+        personList = null;
+        personList1.sort((a1,a2)->a1.getAge().compareTo(a2.getAge()));
+        System.out.println(arr);
+//        System.out.println(personList.equals(personList1));
     }
 }
