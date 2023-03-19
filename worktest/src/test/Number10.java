@@ -1,3 +1,5 @@
+package test;
+
 import java.util.Scanner;
 //题10 - 最左侧冗余覆盖子串
 //        题目描述: 给定2个字符串s1和s2和正整数k,其中s1长度为n1,s2的长度为n2

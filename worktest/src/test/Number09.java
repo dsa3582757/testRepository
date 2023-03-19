@@ -1,3 +1,5 @@
+package test;
+
 import java.util.Arrays;
 import java.util.Scanner;
 //题9- 知识图谱新词挖掘

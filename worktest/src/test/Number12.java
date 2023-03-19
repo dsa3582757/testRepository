@@ -1,3 +1,5 @@
+package test;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 //题12 -云短信平台优惠活动

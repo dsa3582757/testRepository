@@ -1,3 +1,7 @@
+package test;
+
+import test.Coord;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 //题15 - 开心消消乐

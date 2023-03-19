@@ -1,3 +1,5 @@
+package test;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 //题13 - 查找充电设备组合

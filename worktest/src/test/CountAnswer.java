@@ -1,3 +1,7 @@
+package test;
+
+import test.BoatSolve;
+
 import java.util.ArrayList;
 
 public class CountAnswer {

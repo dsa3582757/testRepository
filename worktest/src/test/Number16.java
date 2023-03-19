@@ -1,7 +1,9 @@
+package test;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
+public class Number16 {
     public static int maxNum;
     public static int time;
     public static boolean isReasonable(BoatSolve boatSolve, int maxNum) {
@@ -94,14 +96,14 @@ public class Main {
             boolean flowOver = true;
             int index = 0;
             while (flowOver && index < 3) {
-                    int iT = tmpArr[index]+1;
-                    if (iT > maxArr[index]) {
-                        tmpArr[index] = 0;
-                        index++;
-                    } else {
-                        tmpArr[index] = iT;
-                        flowOver = false;
-                    }
+                int iT = tmpArr[index]+1;
+                if (iT > maxArr[index]) {
+                    tmpArr[index] = 0;
+                    index++;
+                } else {
+                    tmpArr[index] = iT;
+                    flowOver = false;
+                }
             }
             notEnd = index < 3;
         }

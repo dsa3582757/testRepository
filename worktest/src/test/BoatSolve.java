@@ -1,3 +1,5 @@
+package test;
+
 public class BoatSolve {
     private int sheep;
     private int wolf;
