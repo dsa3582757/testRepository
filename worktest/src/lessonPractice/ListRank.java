@@ -2,9 +2,7 @@ package lessonPractice;
 
 import test.Person;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 ;
 
@@ -18,9 +16,30 @@ public class ListRank {
                 new Person(16, 180, "王五"))
         );
         int[] arr = {1,2,3};
-        arr = null;
         for (int i = 0; i < arr.length; i++) {
             System.out.println(arr[i]);
+        }
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(1);
+        arrayList.add(3);
+        arrayList.add(3);
+        arrayList.add(2);
+        arrayList.add(2);
+        arrayList.sort(new Comparator() {
+            @Override
+            public int compare(Object o, Object t1) {
+                Integer a1 = Integer.parseInt(o.toString());
+                Integer a2 = Integer.parseInt(t1.toString());
+                return a1.compareTo(a2);
+            }
+        });
+        HashMap hashMap = new HashMap();
+        hashMap.put("a",1);
+        hashMap.put("b",2);
+        hashMap.put("c",3);
+        hashMap.put("d",4);
+        for (Object o : hashMap.keySet()) {
+            System.out.println(o);
         }
         List<Person> personList1 = new ArrayList<>(personList);
         System.out.println(personList1);
@@ -44,5 +63,6 @@ public class ListRank {
         personList1.sort((a1,a2)->a1.getAge().compareTo(a2.getAge()));
         System.out.println(arr);
 //        System.out.println(personList.equals(personList1));
+
     }
 }

@@ -1,7 +1,5 @@
 package test;
 
-import test.Coord;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 //题15 - 开心消消乐
@@ -137,7 +135,7 @@ public class Number15 {
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
         String numStr = scanner.nextLine();
-        line = Integer.parseInt(numStr.split("")[0]);
+        line = Integer.parseInt(numStr.split(" ")[0]);
         column = Integer.parseInt(numStr.split(" ")[1]);
         matrix = new int[line][column];
         for (int i = 0; i < line; i++) {
