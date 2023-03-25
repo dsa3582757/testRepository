@@ -1,6 +1,7 @@
 package test;
 
 import java.util.Scanner;
+
 //题11-数组的中心位置
 //        题目描述:给你一个整数组nums，请计算数组的中心位置。数组中心位置是数组的一个的一个下标，其左侧所有元素相乘的积等于右侧所有元素相乘的积。
 //        数组第一个元素的左侧积为1，最后一个元素的右侧积为1
@@ -15,38 +16,44 @@ import java.util.Scanner;
 //        输入: 2 5 3 6 5 6
 //        输出: 3
 public class Number11 {
-    public static int product(char[] chars) {
-        int sum = 1;
-        if (chars.length == 0) {
-            return sum;
+    public static int productFrontNum(int i, int[] arr) {
+        int result=1;
+        if (i == 0) {
+            return result;
+        } else {
+            for (int j = 0; j < i; j++) {
+                result = result * arr[j];
+            }
         }
-        for (char s : chars) {
-            sum = sum * Integer.parseInt(String.valueOf(s));
+        return result;
+    }
+
+    public static int productAfterNum(int i, int[] arr) {
+        int result = 1;
+        if (i == arr.length - 1) {
+            return result;
+        } else {
+            for (int j = i + 1; j < arr.length; j++) {
+                result = result * arr[j];
+            }
         }
-        return sum;
+        return result;
     }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String str = scanner.nextLine();
         String[] arr = str.split(" ");
-        String strF = str.replaceAll(" +","");
+        int[] numArr = new int[arr.length];
+        for (int i = 0; i < numArr.length; i++) {
+            numArr[i] = Integer.parseInt(arr[i]);
+        }
         int sumFront;
         int sumAfter;
         int score = -1;
         for (int i = 0; i < arr.length; i++) {
-            String strFront = strF.substring(0, i);
-            String strAfter = strF.substring(i + 1, arr.length);
-            if (i == 0) {
-                sumFront = 1;
-            } else {
-                sumFront = product(strFront.toCharArray());
-            }
-            if (i == arr.length - 1) {
-                sumAfter = 1;
-            } else {
-                sumAfter = product(strAfter.toCharArray());
-            }
+            sumFront = productFrontNum(i, numArr);
+            sumAfter = productAfterNum(i, numArr);
             if (sumFront == sumAfter) {
                 score = i;
                 break;

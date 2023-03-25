@@ -10,21 +10,18 @@ public class Number02 {
 //    第一行输入服务总量n，之后的n行表示服务启动的依赖关系以及自身启动加载耗时
 //    最后输入 k 表示计算需要等待多少时间后可以对服务k进行集成测试
 //    其中 1<=k<=n, 1<=n<=100
-    public int timeAdd(int k,int time,int size,int[][] arr){
+    public static int timeAdd(int k,int time,int size,int[][] arr){
         for (int i = 0; i <size ; i++) {
             if(arr[k][i]==10){
                 time=time+10;
             } else if (arr[k][i]==0) {
-                time=time +0;
+                time = time + 0;
             } else if (arr[k][i]==1) {
                 time = time + timeAdd(i,0,size,arr);
             }
         }
         return time;
     }
-
-
-
 
     public static void main (String[]args){
         int size;
@@ -39,7 +36,7 @@ public class Number02 {
         }
         k= scanner.nextInt()-1;
         int timeAll =0;
-        timeAll = timeAll + new Number02().timeAdd(k,timeAll,size,arr);
+        timeAll = timeAll + timeAdd(k,timeAll,size,arr);
         System.out.println(timeAll);
     }
 }
