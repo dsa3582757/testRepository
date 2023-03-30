@@ -1,8 +1,8 @@
 package exam;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Scanner;
+import java.util.HashSet;
 
 public class Question03 {
     public static void main(String[] args){
@@ -21,12 +21,13 @@ public class Question03 {
             integerHashSet = mergeSet(integerHashSet, list.get(i));
         }
         boolean notEnd = true;
+        ArrayList<Integer> resultList = new ArrayList<>();
         HashSet<Integer> resultSet = new HashSet<>();
         int[] countArr = new int[list.size()];
         while (notEnd){
-
+            resultSet = getHashSet(countArr,list);
             if(resultSet.size()==integerHashSet.size()){
-                System.out.println(getNum(countArr));
+                resultList.add(getNum(countArr));
             }
             int index = 0;
             boolean flowOver = true;
@@ -42,7 +43,19 @@ public class Question03 {
             }
             notEnd = index<list.size();
         }
+        System.out.println(getMin(resultList));
     }
+    
+    public static HashSet<Integer> getHashSet(int[] countArr,ArrayList<int[]> list){
+        HashSet<Integer> result = new HashSet<>();
+        for (int i = 0; i < countArr.length; i++) {
+            if(countArr[i]==1){
+                result = mergeSet(result,list.get(i));
+            }
+        }
+        return result;
+    }
+    
     public static HashSet<Integer> merge(int[] a, int[] b){
         HashSet<Integer> result = new HashSet();
         for (int i = a[0]; i <=a[1] ; i++) {
@@ -68,4 +81,13 @@ public class Question03 {
         return num;
     }
 
+    public static int getMin(ArrayList<Integer> list){
+        int num = list.get(0);
+        for (Integer integer : list) {
+            if(num>integer){
+                num = integer;
+            }
+        }
+        return num;
+    }
 }
